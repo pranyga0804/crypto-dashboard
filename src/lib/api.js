@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'https://api.coingecko.com/api/v3';
+const API_KEY = 'CG-HGNGM7tEDbsUFbPbPpsCD33S';
 
 // Get Market Data (List of Coins)
 export const getMarketData = async (page = 1, perPage = 50) => {
@@ -12,6 +13,9 @@ export const getMarketData = async (page = 1, perPage = 50) => {
       page,
       price_change_percentage: '24h',
     },
+    headers: {
+        'x-cg-demo-api-key': API_KEY
+    }
   });
   return data;
 };
